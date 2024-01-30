@@ -35,6 +35,22 @@ class ClientControleur{
 
     }
 
+    public function form_modifier(){
+
+        $client = $this->oModele->getUnClient();
+
+        $this->oVue->genererAffichageFiche($client);
+
+    }
+
+    public function form_supprimer(){
+
+        $client = $this->oModele->getUnClient();
+
+        $this->oVue->genererAffichageFiche($client);
+
+    }
+
     public function ajouter(){
         // Quel algo ?
         // Je controle les données envoyées
@@ -62,6 +78,52 @@ class ClientControleur{
 
             $this->lister();
         }
+
+    }
+
+    public function modifier(){
+        // même algo que pour ajouter
+
+        $controleClient = new ClientTable($this->parametre);
+
+
+        if ($controleClient->getAutorisationBD() == false){
+
+            $this->oVue->genererAffichageFiche($controleClient);
+
+        }else{
+
+            $this->oModele->editClient($controleClient);
+
+            $this->lister();
+        }
+
+    }
+
+    public function supprimer(){
+
+        // Un client possédant une commande ne peut être supprimé
+        // Quel Algo ?
+        // SI le codec client est retouvé dans la table commande ALORS
+        // supression impossible + message
+        // SINON
+        // DELETE
+        // puis retour a la liste avec le message
+        $controleSuppression = $this->oModele->suppressionPossible();
+
+        if ($controleSuppression == false){
+
+            ClientTable::setMessageErreur('Ce client possède déjà une commande. La supression est impossible.');
+
+            $this->oVue->genererAffichageFiche($this->oModele->getUnClient());
+
+        }else{
+
+            $this->oModele->deleteClient();
+
+            $this->lister();
+        }
+
 
     }
 }

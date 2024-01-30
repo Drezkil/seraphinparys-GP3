@@ -131,7 +131,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     {if $action !='consulter'}
-                                        <input class="btn btn-submit" type="submit" name="btn_valider" value="{$action|capitalize}">
+                                        <input class="btn btn-submit float-right" type="submit" name="btn_valider" value="{$action|capitalize}">
                                     {/if}
                                 </div>
                             </div>

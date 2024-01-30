@@ -25,6 +25,21 @@ class Client{
                 case 'ajouter':
                     $this->oControleur->ajouter();
                     break;
+
+                case 'form_modifier':
+                    $this->oControleur->form_modifier();
+                    break;
+
+                case 'modifier':
+                    $this->oControleur->modifier();
+
+                case 'form_supprimer':
+                    $this->oControleur->form_supprimer();
+                    break;
+
+                case 'supprimer':
+                    $this->oControleur->supprimer();
+                    break;
             }
         }else{
             $this->oControleur->lister();

@@ -51,4 +51,52 @@ class clientModele extends Modele{
             ClientTable::setMessageSucces("Client ajouté avec succès");
         }
     }
+
+    public function editClient(ClientTable $unClient){
+
+        $sql = 'UPDATE client SET nom = ?, adresse = ?, cp = ?, ville = ?, telephone = ? WHERE codec = ?';
+
+        $idRequete = $this->executeRequete($sql, [
+            $unClient->getNom(),
+            $unClient->getAdresse(),
+            $unClient->getCp(),
+            $unClient->getVille(),
+            $unClient->getTelephone(),
+            $unClient->getCodec(),
+        ]);
+
+        if ($idRequete){
+            ClientTable::setMessageSucces("Modification effectuée avec succès.");
+        }
+    }
+
+    public  function suppressionPossible(){
+        $sql = 'SELECT COUNT(codec) AS nombre FROM commande WHERE codec = ? ';
+
+        $idRequete = $this->executeRequete($sql, [
+            $this->parametre['codec'],
+        ]);
+
+        $row = $idRequete->fetch(PDO::FETCH_ASSOC);
+
+        if ($row['nombre']>0){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+    public  function deleteClient(){
+
+        $sql = 'DELETE FROM client WHERE codec = ?';
+
+        $idRequete = $this->executeRequete($sql, [
+            $this->parametre['codec'],
+        ]);
+
+        if ($idRequete){
+            ClientTable::setMessageSucces("Supression effectuée avec succès.");
+        }
+
+    }
 }

@@ -52,6 +52,29 @@ class clientVue{
                 $this->tpl->assign('readonly','');
                 break;
 
+            case 'form_modifier':
+            case 'modifier':
+
+                $this->tpl->assign('action','modifier');
+
+                $this->tpl->assign('titrePage',"Fiche client : Modification");
+
+                $this->tpl->assign('unClient',$client);
+
+                $this->tpl->assign('readonly','');
+                break;
+
+            case 'form_supprimer':
+
+                $this->tpl->assign('action','supprimer');
+
+                $this->tpl->assign('titrePage',"Fiche client : Suppression");
+
+                $this->tpl->assign('unClient',$client);
+
+                $this->tpl->assign('readonly','disabled');
+                break;
+
         }
 
         $this->tpl->display('mod_client/vue/clientFicheVue.tpl');
