@@ -1,4 +1,27 @@
-<!-- Left Panel -->
+<?php
+/* Smarty version 4.3.2, created on 2024-02-01 14:43:28
+  from 'C:\laragon\www\seraphinparys\mvc-sp-09\public\left.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '4.3.2',
+  'unifunc' => 'content_65bbae1019e827_40566798',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'f5837a4f681af2e89835b9da421b8efc709b9a67' => 
+    array (
+      0 => 'C:\\laragon\\www\\seraphinparys\\mvc-sp-09\\public\\left.tpl',
+      1 => 1706798522,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_65bbae1019e827_40566798 (Smarty_Internal_Template $_smarty_tpl) {
+?><!-- Left Panel -->
 
     <aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default">
@@ -53,4 +76,5 @@
         </nav>
     </aside><!-- /#left-panel -->
 
-    <!-- Left Panel -->
+    <!-- Left Panel --><?php }
+}

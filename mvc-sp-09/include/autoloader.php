@@ -28,6 +28,10 @@ class Autoloader{
             'mod_authentification/controleur/',
             'mod_authentification/modele/',
             'mod_authentification/vue/',
+            'mod_vendeur/',
+            'mod_vendeur/controleur/',
+            'mod_vendeur/modele/',
+            'mod_vendeur/vue/',
         ];
 
         foreach ($repertoires as  $repertoire){
