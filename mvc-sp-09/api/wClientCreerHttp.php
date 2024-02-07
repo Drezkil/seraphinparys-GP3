@@ -2,7 +2,7 @@
 try {
 
     // Interface de connexion avec Windev
-    if (isset($_GET['windev']) && $_GET['windev'] == 'ajout' ) {
+    if (isset($_POST['windev']) && $_POST['windev'] == 'ajout' ) {
 
         // Définir les infos de cnx
 
@@ -26,6 +26,7 @@ try {
         $idRequete->execute([
             $nom,
             $adresse,
+            $cp,
             $ville,
             $telephone,
         ]);
@@ -42,7 +43,7 @@ try {
 
     }
 }catch (PDOException $e){
-    echo "Echec de connexion : " . $e->getMessage();
+    echo "Echec de connexion : toto" . $e->getMessage();
     exit;
 }
 
