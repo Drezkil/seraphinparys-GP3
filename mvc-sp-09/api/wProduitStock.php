@@ -23,7 +23,7 @@ try {
 
         while($row = $idRequete->fetch(PDO::FETCH_ASSOC)){
 
-            echo $row['reference'] . " ; " . $row['designation'] . " ; " . $row['quantite'] . " ; " . $row['prix_unitaire_HT'] . " ; " . $row['stock'] . " separateur ";
+            echo $row['reference'] . " ; " . $row['designation'] . " ; " . $row['quantite'] . " ; " . " ; " . $row['descriptif'] . $row['prix_unitaire_HT'] . " ; " . $row['stock'] . " separateur ";
         }
 
 
